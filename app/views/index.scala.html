@@ -1,0 +1,29 @@
+@import domain._
+@(todoList: TodoList)
+<html>
+    <head>
+        <title>TODO</title>
+    </head>
+    <body>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @todoList.todo.map { todo =>
+                        <tr>
+                            <td>
+                            @todo.id.getOrElse(Id(0)).value
+                            <td>
+                            <td>@todo.name.value<td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/new">新規登録</a>
+        </section>
+    </body>
+</html>
