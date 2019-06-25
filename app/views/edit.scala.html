@@ -5,13 +5,18 @@
         <title>Todo</title>
     </head>
     <body>
-        <h1>Todo登録</h1>
-        @helper.form(action = routes.TodoController.create()) {
+        <h1>Todo編集</h1>
+        @helper.form(action = routes.TodoController.update()) {
             @helper.CSRF.formField
             <fieldset>
             @helper.inputText(form("name.value"), '_label -> "名前")
             </fieldset>
+            <input type="hidden" value="@form.get.id.getOrElse(Id(0)).value" name="id.value">
             <input type="submit" value="登録">
             }
+        @helper.form(action = routes.TodoController.delete(form.get.id.getOrElse(Id(0)).value)) {
+            @helper.CSRF.formField
+            <input type="submit" value="削除">
+        }
     </body>
 </html>

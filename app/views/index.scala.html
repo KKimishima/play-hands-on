@@ -16,14 +16,16 @@
                     @todoList.todo.map { todo =>
                         <tr>
                             <td>
-                            @todo.id.getOrElse(Id(0)).value
-                            <td>
+                                <a href="@controllers.routes.TodoController.show(todo.id.getOrElse(Id(0)).value)">
+                                @todo.id.getOrElse(Id(0)).value
+                                </a>
+                        <td>
                             <td>@todo.name.value<td>
                         </tr>
                     }
                 </tbody>
             </table>
-            <a href="/new">新規登録</a>
+            <a href="@controllers.routes.TodoController.neW()">新規登録</a>
         </section>
     </body>
 </html>

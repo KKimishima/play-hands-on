@@ -6,7 +6,11 @@
 # An example controller showing a sample home page
 GET         /                    controllers.TodoController.index
 GET         /new                 controllers.TodoController.neW
+GET         /:id                 controllers.TodoController.show(id:Int)
+GET         /edit/:id            controllers.TodoController.edit(id:Int)
 POST        /create              controllers.TodoController.create
+POST        /update              controllers.TodoController.update
+POST        /:id/delete          controllers.TodoController.delete(id:Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
